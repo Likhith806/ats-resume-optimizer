@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-body bg-[#070c1e] text-slate-200;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(43, 75, 250, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(43, 75, 250, 0.08), transparent);
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl;
+  }
+  .btn-primary {
+    @apply bg-ink-500 hover:bg-ink-400 text-white font-body font-medium px-6 py-3 rounded-xl
+           transition-all duration-200 hover:shadow-lg hover:shadow-ink-500/25
+           active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-ink-500 disabled:active:scale-100;
+  }
+  .btn-ghost {
+    @apply border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white
+           font-body font-medium px-6 py-3 rounded-xl transition-all duration-200
+           active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .keyword-chip {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium
+           bg-ink-500/15 text-ink-300 border border-ink-500/30;
+  }
+  .section-label {
+    @apply text-xs font-mono font-medium tracking-widest text-ink-400 uppercase;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Shimmer loading animation */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+/* Score ring */
+.score-ring {
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
